@@ -1,3 +1,5 @@
+import greenfoot.*;
+
 /**
  * Write a description of class PowerPoint here.
  * 
@@ -6,5 +8,9 @@
  */
 public class PowerPoint extends Item
 {
-
+    private static final GreenfootImage image = new GreenfootImage("images/power-item.png");
+    
+    public PowerPoint(){
+        setImage(image);
+    }
 }

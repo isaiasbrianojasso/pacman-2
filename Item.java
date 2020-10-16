@@ -8,6 +8,5 @@ import greenfoot.*;
  */
 public class Item extends Actor
 {
-    private GreenfootImage image;
     private int points;
 }

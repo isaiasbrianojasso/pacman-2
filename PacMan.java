@@ -15,6 +15,9 @@ public class PacMan extends Person
     private int lifes;
     private int points;
     
+    private int movementInX;
+    private int movementInY;
+    
     public PacMan()
     {
         sprites = new GreenfootImage[2];
@@ -23,6 +26,7 @@ public class PacMan extends Person
         
         lifes = INITIAL_LIFES;
         points = INITIAL_POINTS;
+        direction = CharacterDirection.RIGHT;
     }
     /**
      * Act - do whatever the PacMan wants to do. This method is called whenever
@@ -39,6 +43,74 @@ public class PacMan extends Person
         }
         
         delaySprite++;
-        setLocation(getX()+1, getY());
+        
+        setLocation(getX() + movementInX, getY() + movementInY);
+        
+        String lastKeyPressed = Greenfoot.getKey();
+        if(lastKeyPressed != null)
+        {
+          
+            getWorld().showText(lastKeyPressed, 100, 10);
+            
+            movePacman(lastKeyPressed);
+        }
+        
+        checkCollisions();
+        
     }    
+    
+    void movePacman(String keyPressed)
+    {
+        movementInY = 0;
+        movementInX = 0;
+        switch(keyPressed)
+        {
+            case "up":
+                movementInY = -1;
+                direction = CharacterDirection.UP;
+                turnTowards(getX(), 0);
+            break;
+            case "down":
+                movementInY = 1;
+                direction = CharacterDirection.DOWN;
+                turnTowards(getX(), getWorld().getHeight());
+            break;
+            case "left":
+                direction = CharacterDirection.LEFT;
+                turnTowards(0, getY());
+                movementInX = -1;
+            break;
+            case "right":
+                direction = CharacterDirection.RIGHT;
+                turnTowards(getWorld().getWidth(), getY());
+                movementInX = 1;
+            break;
+        }
+    }
+    
+    void checkCollisions()
+    {
+        Wall wall = null; 
+        switch(direction)
+        {
+            case UP:
+                wall = (Wall)getOneObjectAtOffset(0, -20, Wall.class);
+            break;
+            case DOWN:
+                wall = (Wall)getOneObjectAtOffset(0, 20, Wall.class);
+            break;
+            case RIGHT:
+                wall = (Wall)getOneObjectAtOffset(20, 0, Wall.class);
+            break;
+            case LEFT:
+                wall = (Wall)getOneObjectAtOffset(-20, 0, Wall.class);
+            break;
+        }
+        
+        if(wall != null)
+        {
+            movementInY = 0;
+            movementInX = 0;
+        }
+    }
 }
