@@ -56,7 +56,8 @@ public class PacMan extends Person
         }
         
         checkCollisions();
-        
+        points+=eatPoints();
+        getWorld().showText(Integer.toString(points), 100, 10);
     }    
     
     void movePacman(String keyPressed)
@@ -91,6 +92,8 @@ public class PacMan extends Person
     void checkCollisions()
     {
         Wall wall = null; 
+        Item SmallPoint= null;
+        
         switch(direction)
         {
             case UP:
@@ -111,6 +114,17 @@ public class PacMan extends Person
         {
             movementInY = 0;
             movementInX = 0;
+        }  
+        
+       
+    }
+         int eatPoints()
+        {
+        if(isTouching(Item.class)){
+            Item item = (Item)getOneIntersectingObject(Item.class);
+            getWorld().removeObject(item);
+            return item.getPoints();
         }
+        return 0;
     }
 }

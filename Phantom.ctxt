@@ -1,6 +1,14 @@
 #BlueJ class context
 comment0.target=Phantom
-comment0.text=\n\ Write\ a\ description\ of\ class\ Phantom\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Phantom\ here.\n\ \n\ @author\ Jose\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=Phantom()
-numComments=2
+comment1.target=int\ getPoints()
+comment2.params=
+comment2.target=Phantom()
+comment3.params=
+comment3.target=void\ act()
+comment4.params=
+comment4.target=void\ movePhantom()
+comment5.params=
+comment5.target=void\ checkCollisions()
+numComments=6

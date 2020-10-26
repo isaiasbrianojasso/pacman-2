@@ -4,6 +4,11 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
+import greenfoot.*;
 public class BluePhantom extends Phantom
 {
+      public BluePhantom(){
+        setImage(new GreenfootImage("images/blue-phantom-left.png"));
+    }
+    
 }

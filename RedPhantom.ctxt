@@ -1,4 +1,5 @@
 #BlueJ class context
 comment0.target=RedPhantom
-comment0.text=\n\ Write\ a\ description\ of\ class\ RedPhantom\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-numComments=1
+comment1.params=
+comment1.target=RedPhantom()
+numComments=2
